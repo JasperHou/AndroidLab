@@ -11,9 +11,32 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    productFlavors {
+        north_america { applicationId "de.bmw.connected.na" }
+        china { applicationId "de.bmw.connected.cn" }
+        rest_of_the_world { applicationId "de.bmw.connected" }
+    }
+
     buildTypes {
+
+        debug {
+            applicationIdSuffix ".dev"
+            testCoverageEnabled false
+        }
+
+        integration {
+            initWith(debug)
+            applicationIdSuffix ".int"
+
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testCoverageEnabled false
+        }
+
         release {
-            minifyEnabled false
+            minifyEnabled true
+            testCoverageEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
