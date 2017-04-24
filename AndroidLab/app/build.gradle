@@ -13,9 +13,9 @@ android {
     }
 
     productFlavors {
-        north_america { applicationId "de.bmw.connected.na" }
-        china { applicationId "de.bmw.connected.cn" }
-        rest_of_the_world { applicationId "de.bmw.connected" }
+        north_america { applicationId "android.lab.us" }
+        china { applicationId "android.lab.cn" }
+        rest_of_the_world { applicationId "android.lab.de" }
     }
 
     buildTypes {
@@ -48,5 +48,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     testCompile 'junit:junit:4.12'
+
+    compile 'com.jakewharton:disklrucache:2.0.2'
+    compile "io.reactivex.rxjava2:rxjava:2.0.8"
+    compile 'com.jakewharton:butterknife:8.2.1'
 }
